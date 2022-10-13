@@ -69,7 +69,6 @@
             "never"
         ],
         "import/order": ["warn", {"groups": ["builtin", "type", "external", "internal", "index" ]}],
-        "no-unused-vars": ["error", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
         "import/no-default-export": "error",
         "no-debugger": "error",
         "@typescript-eslint/no-floating-promises": "error",

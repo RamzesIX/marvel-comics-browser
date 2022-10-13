@@ -45,7 +45,5 @@ The resulted build includes the production environment configuration.
 
 The following environment variables are used for project configuration:
 
-- `VITE_APP_API` - URI to the server API
+- `VITE_API_BASE_URL` - URI to the server API
 - `VITE_API_KEY` - API Public Key
-- `VITE_API_TIMESTAMP` - Timestamp used for Hash generation (only required in DEV mode).
-- `VITE_API_HASH` - Hash (only required in DEV mode)
