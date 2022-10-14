@@ -1,9 +1,13 @@
-import { AppMode } from './types'
+export interface IExternalLinks {
+    marvelWebsite: string
+}
 
 export interface IGlobalConstants {
-    mode: AppMode
+    externalLinks: IExternalLinks
 }
 
 export const globalConstants: IGlobalConstants = {
-    mode: import.meta.env.MODE as AppMode,
+    externalLinks: {
+        marvelWebsite: 'https://marvel.com',
+    },
 }

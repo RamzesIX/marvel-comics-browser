@@ -1,0 +1,27 @@
+@import 'src/styles/constants';
+
+$footerBoxShadow: 0 -4px 5px 0 rgba(0, 0, 0, 0.75);
+
+.footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    height: $footerHeight;
+    box-shadow: $footerBoxShadow;
+    background-color: white; // TODO use a color from constants.scss
+
+    .footerContent {
+        height: 100%;
+        max-width: $mainContentWidth;
+        margin: 0 auto;
+        display: grid;
+        grid-gap: $gridLarge;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        padding: $gridMedium $gridLarge;
+    }
+
+    .footerAttribution {
+        font-size: $fontSizeSmall;
+    }
+}
