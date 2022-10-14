@@ -30,6 +30,12 @@ npm run start
 ```
 Hot reloading is enabled automatically. The app should be available in browser at http://localhost:8080.
 
+### Testing
+To run the automated tests use the following command:
+```
+npm run test
+```
+
 ### Build
 To build the project use the following command:
 ```
