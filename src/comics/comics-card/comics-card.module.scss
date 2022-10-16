@@ -1,0 +1,60 @@
+@import 'src/styles/constants';
+
+$comicsCardHeight: 16rem;
+$comicsCardBoxShadow: -4px 6px 13px 0px rgba(0, 0, 0, 0.5);
+
+.comicsCard {
+    padding: $gridBase;
+    height: $comicsCardHeight;
+    border-radius: $borderRadiusBase;
+    box-shadow: $comicsCardBoxShadow;
+    display: grid;
+    grid-gap: $gridBase;
+    grid-template-rows: auto auto auto 1fr;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 'thumbnail title' 'thumbnail date' 'thumbnail creators' 'thumbnail description';
+
+    .thumbnail {
+        object-fit: fill;
+        height: 100%;
+        aspect-ratio: 0.7;
+        grid-area: thumbnail;
+    }
+
+    .title {
+        grid-area: title;
+        font-size: $fontSizeLarge;
+        font-weight: bold;
+    }
+
+    .description {
+        grid-area: description;
+        font-size: $fontSizeSmall;
+        overflow: scroll;
+    }
+
+    .creators {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        grid-gap: $gridTiny;
+        grid-area: creators;
+    }
+
+    .date {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: start;
+        align-items: center;
+        grid-gap: $gridTiny;
+        grid-area: date;
+    }
+
+    .primaryText {
+        font-weight: bold;
+    }
+
+    .secondaryText {
+        font-size: $fontSizeSmall;
+    }
+}

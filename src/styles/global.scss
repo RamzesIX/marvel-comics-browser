@@ -1,5 +1,6 @@
 @import './constants';
 @import './normalize.scss';
+@import './common.scss';
 
 html {
     height: 100%;
@@ -19,6 +20,10 @@ body {
 
 * {
     box-sizing: border-box;
+}
+
+* [hidden] {
+    display: none !important;
 }
 
 h1,

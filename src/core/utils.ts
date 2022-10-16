@@ -7,3 +7,7 @@ export function delay(time: number): Promise<void> {
         setTimeout(res, time)
     })
 }
+
+export function formatDate(date: string): string {
+    return new Date(date).toLocaleDateString()
+}

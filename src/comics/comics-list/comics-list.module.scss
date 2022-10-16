@@ -1,0 +1,13 @@
+@import 'src/styles/constants';
+
+.comicsList {
+    display: grid;
+    grid-gap: $gridBase;
+
+    .header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-gap: $gridBase;
+        justify-content: space-between;
+    }
+}
