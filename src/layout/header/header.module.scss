@@ -4,7 +4,7 @@ $headerBoxShadow: 0 4px 5px 0 rgba(0, 0, 0, 0.75);
 $headerIconSize: 2.5rem;
 
 .header {
-    position: sticky;
+    position: fixed; // TODO research sticky position issue caused by Virtual Rendering list
     top: 0;
     width: 100%;
     height: $headerHeight;
