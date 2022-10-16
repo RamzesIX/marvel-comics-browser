@@ -1,0 +1,21 @@
+@import 'src/styles/constants';
+
+:global {
+    .app-list-container {
+        display: flex;
+        flex-direction: column;
+
+        > *:not(:last-child) {
+            padding-bottom: $gridMedium;
+        }
+    }
+}
+
+.listFooter {
+    display: flex;
+    justify-content: center;
+
+    .listFooterSpinner {
+        margin: $gridMedium;
+    }
+}

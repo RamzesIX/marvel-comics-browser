@@ -6,8 +6,8 @@
 
     .content {
         max-width: $mainContentWidth;
-        min-height: calc(100% - $headerHeight - $footerHeight);
+        min-height: calc(100% - $footerHeight);
         margin: 0 auto 0 auto;
-        padding: $gridLarge;
+        padding: $gridLarge + $headerHeight $gridLarge $gridLarge $gridLarge;
     }
 }
