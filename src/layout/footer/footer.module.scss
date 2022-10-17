@@ -3,11 +3,12 @@
 $footerBoxShadow: 0 -4px 5px 0 rgba(0, 0, 0, 0.75);
 
 .footer {
-    position: sticky;
+    position: fixed; // TODO research sticky position issue caused by Virtual Rendering list
     bottom: 0;
     width: 100%;
     height: $footerHeight;
     box-shadow: $footerBoxShadow;
+    z-index: $footerZIndex;
     background-color: white; // TODO use a color from constants.scss
 
     .footerContent {

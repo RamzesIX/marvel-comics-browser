@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 
 export interface IAppListData {
-    id: string
+    id: string | number
 }
 
 export interface IAppListProps<TData extends IAppListData> {
