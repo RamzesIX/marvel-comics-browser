@@ -1,0 +1,25 @@
+@import 'src/styles/constants';
+
+.appInput {
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto $appControlHeight minmax($appControlErrorSize, auto);
+    grid-gap: $gridTiny;
+
+    .label {
+        &Invalid {
+            color: red;
+        }
+    }
+
+    .control {
+        border: 1px solid gray;
+        padding: $appControlPadding;
+        border-radius: $borderRadiusBase;
+
+        &Invalid {
+            border-color: red;
+            outline-color: red;
+        }
+    }
+}

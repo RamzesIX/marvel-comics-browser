@@ -21,6 +21,8 @@ $headerIconSize: 2.5rem;
         grid-template-columns: auto 1fr;
         align-items: center;
         padding: $gridMedium $gridLarge;
+        color: black;
+        text-decoration: none;
     }
 
     .headerIcon {

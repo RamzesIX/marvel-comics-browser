@@ -66,3 +66,8 @@ export interface IComicUrl {
     type: ComicUrlType
     url: string
 }
+
+export enum ComicRoutingAction {
+    Create = 'create',
+    Update = 'update',
+}

@@ -1,0 +1,14 @@
+@import 'src/styles/constants';
+
+.appIconButton {
+    padding: $gridTiny;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: firebrick; // TODO use theme color from constants
+    color: white;
+
+    :disabled {
+        background-color: gray;
+    }
+}
