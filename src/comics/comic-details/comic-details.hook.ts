@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useNavigate } from 'react-router-dom'
 import { useForm, UseFormReturn } from 'react-hook-form'
@@ -8,7 +8,8 @@ import { comicDetailsValidation } from './comic-details.validation'
 import { ComicsService } from '../comics.service'
 import { ErrorHandler } from '../../core/services/error-handler'
 import { ToastService } from '../../core/services/toast.service'
-import { retrieveFormValues } from './comic-details.utils'
+import { convertFormDataToPayload, retrieveFormValues } from './comic-details.utils'
+import { IComic } from '../comics.types'
 
 interface IComicDetailsHookState {
     loading: boolean
@@ -23,6 +24,7 @@ export interface IComicDetailsHook extends IComicDetailsHookState {
 
 export function useComicDetails(id: number | null): IComicDetailsHook {
     const [loading, setLoading] = useState<boolean>(false)
+    const comicRef = useRef<IComic | null>(null)
     const navigate = useNavigate()
 
     const form = useForm<IComicDetailsForm>({
@@ -38,6 +40,7 @@ export function useComicDetails(id: number | null): IComicDetailsHook {
             try {
                 setLoading(true)
                 const comic = await ComicsService.get(comicId)
+                comicRef.current = comic
                 reset(retrieveFormValues(comic))
             } catch (e) {
                 ErrorHandler.handleError(e)
@@ -56,10 +59,9 @@ export function useComicDetails(id: number | null): IComicDetailsHook {
         navigate('/comics')
     }
 
-    // TODO finish me
     const createComic = async (payload: IComicDetailsForm): Promise<void> => {
         try {
-            console.log(payload)
+            await ComicsService.create(convertFormDataToPayload(payload))
             navigate('/comics')
             ToastService.showSuccess(`Comic ${payload.title} has been created.`)
         } catch (e) {
@@ -67,10 +69,9 @@ export function useComicDetails(id: number | null): IComicDetailsHook {
         }
     }
 
-    // TODO finish me
     const updateComic = async (id: number, payload: IComicDetailsForm): Promise<void> => {
         try {
-            console.log(id, payload)
+            await ComicsService.update({ id, ...convertFormDataToPayload(payload, comicRef.current) })
             navigate('/comics')
             ToastService.showSuccess(`Comic ${payload.title} has been updated.`)
         } catch (e) {

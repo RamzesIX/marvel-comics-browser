@@ -7,7 +7,7 @@ import { getComicsDescription, getComicsReleaseDate, getComicsThumbnailUri, getC
 import { AppButton } from '../../components/button/button'
 
 export const ComicsList: FC = () => {
-    const { data, loading, loadNext, navigateToComicDetails } = useComicsList()
+    const { data, loading, loadNext, navigateToComicDetails, deleteComics } = useComicsList()
 
     return (
         <div className={styles.comicsList}>
@@ -28,6 +28,8 @@ export const ComicsList: FC = () => {
                         releaseDate={getComicsReleaseDate(comics)}
                         description={getComicsDescription(comics)}
                         creators={comics.creators.items}
+                        onDelete={deleteComics}
+                        onUpdate={navigateToComicDetails}
                     />
                 )}
                 loading={loading}

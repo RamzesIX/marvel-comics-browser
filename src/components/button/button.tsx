@@ -9,7 +9,7 @@ export interface IAppButtonProps {
     type?: 'button' | 'submit'
     loading?: boolean
     className?: string
-    onClick: MouseEventHandler
+    onClick?: MouseEventHandler
 }
 
 export const appButtonSpinnerTestId = 'app-button-spinner-test-id'
@@ -18,16 +18,8 @@ const spinnerSize = 20
 export const AppButton: FC<IAppButtonProps> = ({ label, disabled = false, loading = false, type = 'button', className, onClick }) => {
     return (
         <button className={cls(styles.appButton, className)} type={type} onClick={onClick} disabled={disabled || loading}>
-            {loading ? (
-                <SpinnerDotted
-                    data-testid={appButtonSpinnerTestId}
-                    className={styles.listFooterSpinner}
-                    size={spinnerSize}
-                    enabled={loading}
-                />
-            ) : (
-                label
-            )}
+            <SpinnerDotted data-testid={appButtonSpinnerTestId} className={styles.spinner} size={spinnerSize} enabled={loading} />
+            <span className={cls(styles.label, loading ? styles.labelHidden : '')}>{label}</span>
         </button>
     )
 }

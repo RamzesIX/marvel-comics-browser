@@ -27,16 +27,13 @@ export const AppIconButton: FC<IAppIconButtonProps> = ({ label, loading = false,
             onClick={onClick}
             disabled={disabled || loading}
         >
-            {loading ? (
-                <SpinnerDotted
-                    data-testid={appIconButtonSpinnerTestId}
-                    className={styles.listFooterSpinner}
-                    size={spinnerSize}
-                    enabled={loading}
-                />
-            ) : (
-                <SvgIcon iconId={icon} />
-            )}
+            <SpinnerDotted
+                data-testid={appIconButtonSpinnerTestId}
+                className={styles.listFooterSpinner}
+                size={spinnerSize}
+                enabled={loading}
+            />
+            {!loading && <SvgIcon iconId={icon} />}
         </button>
     )
 }

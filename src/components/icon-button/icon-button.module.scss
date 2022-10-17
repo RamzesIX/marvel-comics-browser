@@ -1,14 +1,21 @@
 @import 'src/styles/constants';
 
 .appIconButton {
-    padding: $gridTiny;
+    padding: $gridMedium;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: firebrick; // TODO use theme color from constants
-    color: white;
+    color: black; // TODO use a theme color
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 
-    :disabled {
-        background-color: gray;
+    &:hover {
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    &:disabled {
+        color: gray;
     }
 }

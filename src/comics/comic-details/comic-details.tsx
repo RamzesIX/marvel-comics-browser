@@ -14,7 +14,11 @@ export const ComicDetails: FC = () => {
     const comicId = id ? Number(id) : null
     const { form, loading, goBack, updateComic, createComic } = useComicDetails(comicId)
 
-    const { control, handleSubmit } = form
+    const {
+        control,
+        handleSubmit,
+        formState: { isSubmitting },
+    } = form
 
     const actionLabel = id ? 'Update Comic' : 'Create Comic'
 
@@ -61,6 +65,22 @@ export const ComicDetails: FC = () => {
                     )}
                 />
                 <Controller
+                    name={ComicDetailsFormField.Creators}
+                    control={control}
+                    render={({ field: { onChange, onBlur, value, name }, fieldState: { error } }) => (
+                        <AppInput
+                            name={name}
+                            value={value}
+                            onBlur={onBlur}
+                            onChange={onChange}
+                            disabled={loading}
+                            error={error?.message}
+                            placeholder="John Doe, Jane Doe"
+                            label="Creators"
+                        />
+                    )}
+                />
+                <Controller
                     name={ComicDetailsFormField.Description}
                     control={control}
                     render={({ field: { value, onChange, onBlur, name }, fieldState: { error } }) => (
@@ -77,7 +97,7 @@ export const ComicDetails: FC = () => {
                 />
                 <section className={styles.buttons}>
                     <AppButton label="Cancel" onClick={goBack} />
-                    <AppButton label="Submit" type="submit" onClick={() => console.log('submit')} />
+                    <AppButton label="Submit" type="submit" loading={isSubmitting} />
                 </section>
             </form>
         </div>
