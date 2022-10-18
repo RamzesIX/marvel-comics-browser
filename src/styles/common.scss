@@ -9,5 +9,5 @@
 
 .app-control-error {
     font-size: $fontSizeTiny;
-    color: red; // TODO use a theme color
+    color: $errorColor;
 }

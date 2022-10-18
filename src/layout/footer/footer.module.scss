@@ -9,7 +9,7 @@ $footerBoxShadow: 0 -4px 5px 0 rgba(0, 0, 0, 0.75);
     height: $footerHeight;
     box-shadow: $footerBoxShadow;
     z-index: $footerZIndex;
-    background-color: white; // TODO use a color from constants.scss
+    background-color: $primaryColor;
 
     .footerContent {
         height: 100%;
@@ -23,5 +23,12 @@ $footerBoxShadow: 0 -4px 5px 0 rgba(0, 0, 0, 0.75);
 
     .footerAttribution {
         font-size: $fontSizeSmall;
+        color: $secondaryColor;
+        display: flex;
+        align-items: center;
+
+        a {
+            color: $secondaryColor;
+        }
     }
 }

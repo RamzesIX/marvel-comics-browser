@@ -9,6 +9,11 @@ $fontSizeSmall: 0.9rem;
 $fontSizeBase: 1rem;
 $fontSizeLarge: 1.4rem;
 
+$primaryColor: #202020;
+$secondaryColor: #ffffff;
+$tertiaryColor: #767676;
+$errorColor: #eb2328;
+
 $fontFamily: Roboto, sans-serif;
 
 $gridTiny: 0.3rem;
@@ -23,6 +28,7 @@ $appButtonHeight: 2.5rem;
 $appControlHeight: 2.5rem;
 $appControlPadding: 0.3rem 0.6rem;
 $appControlErrorSize: 1rem;
+$appControlBorder: 1px solid $tertiaryColor;
 
 // Screen width breakpoints
 $bpXs: 768px;
