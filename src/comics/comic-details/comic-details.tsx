@@ -8,6 +8,7 @@ import { AppInput } from '../../components/input/input'
 import { AppButton } from '../../components/button/button'
 import { AppDatepicker } from '../../components/datepicker/datepicker'
 import { AppTextarea } from '../../components/textarea/textarea'
+import { comicDetailsCreateTitle, comicDetailsUpdateTitle } from './comic-details.constants'
 
 export const ComicDetails: FC = () => {
     const { id } = useParams()
@@ -20,7 +21,7 @@ export const ComicDetails: FC = () => {
         formState: { isSubmitting },
     } = form
 
-    const actionLabel = id ? 'Update Comic' : 'Create Comic'
+    const actionLabel = id ? comicDetailsUpdateTitle : comicDetailsCreateTitle
 
     const createOrUpdateComic = async (data: IComicDetailsForm): Promise<void> => {
         if (comicId) {
@@ -96,7 +97,7 @@ export const ComicDetails: FC = () => {
                     )}
                 />
                 <section className={styles.buttons}>
-                    <AppButton label="Cancel" onClick={goBack} />
+                    <AppButton label="Cancel" onClick={goBack} disabled={isSubmitting} />
                     <AppButton label="Submit" type="submit" loading={isSubmitting} />
                 </section>
             </form>

@@ -9,6 +9,8 @@ import { IconId } from '../../components/svg-icon/svg-icon.types'
 import { ErrorHandler } from '../../core/services/error-handler'
 
 export const comicsCardSpinnerTestId = 'comics-card-spinner-test-id'
+export const comicsCardUpdateButtonLabel = 'Update comic'
+export const comicsCardDeleteButtonLabel = 'Delete comic'
 
 const spinnerSize: number = 30
 
@@ -54,8 +56,8 @@ export const ComicsCard: FC<IComicsCardProps> = ({ id, title, uri, creators, thu
                 />
                 {!loading && (
                     <>
-                        <AppIconButton label="Update comic" icon={IconId.Edit} onClick={handleUpdate} />
-                        <AppIconButton label="Delete comic" icon={IconId.Delete} onClick={handleDelete} />
+                        <AppIconButton label={comicsCardUpdateButtonLabel} icon={IconId.Edit} onClick={handleUpdate} />
+                        <AppIconButton label={comicsCardDeleteButtonLabel} icon={IconId.Delete} onClick={handleDelete} />
                     </>
                 )}
             </section>

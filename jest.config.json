@@ -3,6 +3,8 @@
     "testEnvironment": "jest-environment-jsdom",
     "moduleNameMapper": {
         "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/asset-mock.ts",
-        "\\.(css|scss)$": "identity-obj-proxy"
-    }
+        "\\.(css|scss)$": "identity-obj-proxy",
+        "http-client": "<rootDir>/__mocks__/http-client-mock.ts"
+    },
+    "setupFilesAfterEnv": ["<rootDir>/src/test-setup.ts"]
 }
