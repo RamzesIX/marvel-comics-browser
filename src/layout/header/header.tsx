@@ -7,10 +7,12 @@ import { IconId } from '../../components/svg-icon/svg-icon.types'
 export const AppHeader: FC = () => {
     return (
         <header className={styles.header}>
-            <Link to="/comics" className={styles.headerContent}>
-                <SvgIcon aria-label="Logo" iconId={IconId.IronMan} className={styles.headerIcon} />
-                <h1 className={styles.headerTitle}>Marvel Comics</h1>
-            </Link>
+            <div className={styles.headerContent}>
+                <Link to="/comics" className={styles.headerLink}>
+                    <SvgIcon aria-label="Logo" iconId={IconId.IronMan} className={styles.headerIcon} />
+                    <h1 className={styles.headerTitle}>Marvel Comics</h1>
+                </Link>
+            </div>
         </header>
     )
 }

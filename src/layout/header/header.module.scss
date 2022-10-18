@@ -16,13 +16,18 @@ $headerIconSize: 2.5rem;
         height: 100%;
         max-width: $mainContentWidth;
         margin: 0 auto;
+        padding: $gridMedium $gridLarge;
+    }
+
+    .headerLink {
         display: grid;
         grid-gap: $gridMedium;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: auto auto;
         align-items: center;
-        padding: $gridMedium $gridLarge;
+        justify-content: start;
         color: black;
         text-decoration: none;
+        width: fit-content;
     }
 
     .headerIcon {

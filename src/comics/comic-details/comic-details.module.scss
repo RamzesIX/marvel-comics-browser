@@ -9,10 +9,18 @@ $comicDetailsFormWidth: 19rem;
     width: 100%;
     justify-content: center;
 
+    @media screen and (max-width: $bpXs) {
+        justify-content: unset;
+    }
+
     .form {
         width: $comicDetailsFormWidth;
         display: grid;
         grid-gap: $gridTiny;
+
+        @media screen and (max-width: $bpXs) {
+            width: 100%;
+        }
     }
 
     .buttons {

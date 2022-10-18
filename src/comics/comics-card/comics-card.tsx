@@ -44,36 +44,38 @@ export const ComicsCard: FC<IComicsCardProps> = ({ id, title, uri, creators, thu
     return (
         <div key={id} className={styles.comicsCard}>
             <img src={thumbnail} className={styles.thumbnail} alt={`${title} thumbnail`} />
-            <a href={uri} target="_blank" className={styles.title} rel="noreferrer">
-                {title}
-            </a>
-            <section className={styles.actions}>
-                <SpinnerDotted
-                    size={spinnerSize}
-                    data-testid={comicsCardSpinnerTestId}
-                    className={styles.listFooterSpinner}
-                    enabled={loading}
-                />
-                {!loading && (
-                    <>
-                        <AppIconButton label={comicsCardUpdateButtonLabel} icon={IconId.Edit} onClick={handleUpdate} />
-                        <AppIconButton label={comicsCardDeleteButtonLabel} icon={IconId.Delete} onClick={handleDelete} />
-                    </>
-                )}
-            </section>
-            <section className={styles.date}>
-                <p className={styles.primaryText}>Published: </p>
-                <p data-testid="comics-card-date" className={styles.secondaryText}>
-                    {formatDate(releaseDate)}
-                </p>
-            </section>
-            <section className={styles.creators} hidden={!creatorsToDisplay.length}>
-                <p className={styles.primaryText}>Creators: </p>
-                <p data-testid="comics-card-creators" className={cls('app-text-truncated', styles.secondaryText)}>
-                    {creatorsToDisplay}
-                </p>
-            </section>
-            <p className={styles.description}>{description}</p>
+            <div className={styles.content}>
+                <a href={uri} target="_blank" className={cls(styles.title, 'app-text-truncated')} rel="noreferrer">
+                    {title}
+                </a>
+                <section className={styles.actions}>
+                    <SpinnerDotted
+                        size={spinnerSize}
+                        data-testid={comicsCardSpinnerTestId}
+                        className={styles.listFooterSpinner}
+                        enabled={loading}
+                    />
+                    {!loading && (
+                        <>
+                            <AppIconButton label={comicsCardUpdateButtonLabel} icon={IconId.Edit} onClick={handleUpdate} />
+                            <AppIconButton label={comicsCardDeleteButtonLabel} icon={IconId.Delete} onClick={handleDelete} />
+                        </>
+                    )}
+                </section>
+                <section className={styles.date}>
+                    <p className={styles.primaryText}>Published: </p>
+                    <p data-testid="comics-card-date" className={styles.secondaryText}>
+                        {formatDate(releaseDate)}
+                    </p>
+                </section>
+                <section className={styles.creators} hidden={!creatorsToDisplay.length}>
+                    <p className={styles.primaryText}>Creators: </p>
+                    <p data-testid="comics-card-creators" className={cls('app-text-truncated', styles.secondaryText)}>
+                        {creatorsToDisplay}
+                    </p>
+                </section>
+                <p className={styles.description}>{description}</p>
+            </div>
         </div>
     )
 }

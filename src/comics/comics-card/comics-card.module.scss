@@ -5,22 +5,45 @@ $comicsCardBoxShadow: -4px 6px 13px 0px rgba(0, 0, 0, 0.5);
 $comicsCardActionsHeight: 2rem;
 
 .comicsCard {
-    padding: $gridBase;
     height: $comicsCardHeight;
     border-radius: $borderRadiusBase;
     box-shadow: $comicsCardBoxShadow;
-    align-items: center;
     display: grid;
-    grid-gap: $gridBase;
-    grid-template-rows: $comicsCardActionsHeight auto auto 1fr;
-    grid-template-columns: auto 1fr auto;
-    grid-template-areas: 'thumbnail title actions' 'thumbnail date date' 'thumbnail creators creators' 'thumbnail description description';
+    grid-template-columns: auto 1fr;
+    grid-auto-rows: minmax(0, 1fr);
+
+    @media screen and (max-width: $bpXs) {
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .content {
+        padding: $gridMedium $gridBase;
+        display: grid;
+        grid-gap: $gridBase;
+        grid-template-rows: $comicsCardActionsHeight auto auto 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 'title actions' 'date date' 'creators creators' 'description description';
+
+        @media screen and (max-width: $bpXs) {
+            grid-gap: $gridMedium;
+            grid-template-rows: auto auto auto;
+            grid-template-areas: 'title' 'creators' 'actions';
+            align-items: unset;
+            padding: $gridMedium;
+        }
+    }
 
     .thumbnail {
         object-fit: fill;
         height: 100%;
         aspect-ratio: 0.7;
-        grid-area: thumbnail;
+
+        @media screen and (max-width: $bpXs) {
+            width: 100%;
+            height: unset;
+        }
     }
 
     .actions {
@@ -33,15 +56,24 @@ $comicsCardActionsHeight: 2rem;
     }
 
     .title {
+        align-self: center;
         grid-area: title;
         font-size: $fontSizeLarge;
         font-weight: bold;
+
+        @media screen and (max-width: $bpXs) {
+            font-size: $fontSizeBase;
+        }
     }
 
     .description {
         grid-area: description;
         font-size: $fontSizeSmall;
         overflow: scroll;
+
+        @media screen and (max-width: $bpXs) {
+            display: none;
+        }
     }
 
     .creators {
@@ -50,6 +82,14 @@ $comicsCardActionsHeight: 2rem;
         align-items: center;
         grid-gap: $gridTiny;
         grid-area: creators;
+
+        @media screen and (max-width: $bpXs) {
+            grid-template-columns: 1fr;
+
+            & > p:first-child {
+                display: none;
+            }
+        }
     }
 
     .date {
@@ -59,6 +99,10 @@ $comicsCardActionsHeight: 2rem;
         align-items: center;
         grid-gap: $gridTiny;
         grid-area: date;
+
+        @media screen and (max-width: $bpXs) {
+            display: none;
+        }
     }
 
     .primaryText {
