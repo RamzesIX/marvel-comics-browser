@@ -2,23 +2,34 @@
 
 $comicsCardHeight: 16rem;
 $comicsCardBoxShadow: -4px 6px 13px 0px rgba(0, 0, 0, 0.5);
+$comicsCardActionsHeight: 2rem;
 
 .comicsCard {
     padding: $gridBase;
     height: $comicsCardHeight;
     border-radius: $borderRadiusBase;
     box-shadow: $comicsCardBoxShadow;
+    align-items: center;
     display: grid;
     grid-gap: $gridBase;
-    grid-template-rows: auto auto auto 1fr;
-    grid-template-columns: auto 1fr;
-    grid-template-areas: 'thumbnail title' 'thumbnail date' 'thumbnail creators' 'thumbnail description';
+    grid-template-rows: $comicsCardActionsHeight auto auto 1fr;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: 'thumbnail title actions' 'thumbnail date date' 'thumbnail creators creators' 'thumbnail description description';
 
     .thumbnail {
         object-fit: fill;
         height: 100%;
         aspect-ratio: 0.7;
         grid-area: thumbnail;
+    }
+
+    .actions {
+        grid-area: actions;
+        display: flex;
+        flex-direction: row;
+        gap: $gridMedium;
+        justify-content: center;
+        align-items: center;
     }
 
     .title {

@@ -1,6 +1,13 @@
+@import 'constants';
+
 .app-text-truncated {
     overflow: hidden;
     white-space: nowrap;
     word-break: break-word;
     text-overflow: ellipsis;
+}
+
+.app-control-error {
+    font-size: $fontSizeTiny;
+    color: red; // TODO use a theme color
 }

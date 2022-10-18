@@ -1,0 +1,25 @@
+@import 'src/styles/constants';
+
+$comicDetailsFormWidth: 19rem;
+
+.comicDetails {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-gap: $gridBase;
+    width: 100%;
+    justify-content: center;
+
+    .form {
+        width: $comicDetailsFormWidth;
+        display: grid;
+        grid-gap: $gridTiny;
+    }
+
+    .buttons {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: $gridBase;
+        justify-content: end;
+        align-items: center;
+    }
+}

@@ -66,3 +66,20 @@ export interface IComicUrl {
     type: ComicUrlType
     url: string
 }
+
+export enum ComicRoutingAction {
+    Create = 'create',
+    Update = 'update',
+}
+
+export interface ICreateComicPayload {
+    creators: IComicCreator[]
+    title: string
+    thumbnail: IComicThumbnail
+    description: string
+    releaseDate: Date
+}
+
+export interface IUpdateComicPayload extends ICreateComicPayload {
+    id: number
+}

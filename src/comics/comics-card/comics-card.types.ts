@@ -8,4 +8,6 @@ export interface IComicsCardProps {
     releaseDate: string
     description?: string
     creators: IComicCreator[]
+    onDelete(id: number): Promise<void> | void
+    onUpdate(id: number): Promise<void> | void
 }

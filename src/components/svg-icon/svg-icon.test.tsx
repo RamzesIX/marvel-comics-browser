@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { SvgIcon } from './svg-icon'
+import { SvgIcon, svgIconTestId, svgIconUseElementTestId } from './svg-icon'
 import { IconId } from './svg-icon.types'
 import '@testing-library/jest-dom'
 import { getPathToIcon } from './svg-icon.utils'
@@ -9,16 +9,16 @@ describe('SvgIcon', () => {
         const ariaLabel = 'Iron Man Icon'
         const className = 'test-class'
         render(<SvgIcon iconId={IconId.IronMan} aria-label={ariaLabel} className={className} />)
-        const svg = screen.getByTestId('svg-icon')
+        const svg = screen.getByTestId(svgIconTestId)
         expect(svg).toBeInTheDocument()
         expect(svg).toHaveAttribute('aria-label', ariaLabel)
         expect(svg).toHaveClass(className)
-        expect(screen.getByTestId('svg-icon-use')).toHaveAttribute('xlink:href', getPathToIcon(IconId.IronMan))
+        expect(screen.getByTestId(svgIconUseElementTestId)).toHaveAttribute('xlink:href', getPathToIcon(IconId.IronMan))
     })
 
     it('should hide an icon', () => {
         render(<SvgIcon iconId={IconId.IronMan} hidden />)
-        const svg = screen.getByTestId('svg-icon')
+        const svg = screen.getByTestId(svgIconTestId)
         expect(svg).toHaveClass('svgIconHidden')
     })
 })

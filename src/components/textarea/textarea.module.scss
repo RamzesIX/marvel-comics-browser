@@ -1,0 +1,26 @@
+@import 'src/styles/constants';
+
+.appTextarea {
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto minmax($appControlHeight, auto) minmax($appControlErrorSize, auto);
+    grid-gap: $gridTiny;
+
+    .label {
+        &Invalid {
+            color: red;
+        }
+    }
+
+    .control {
+        padding: $appControlPadding;
+        border: 1px solid gray;
+        border-radius: $borderRadiusBase;
+        resize: none;
+
+        &Invalid {
+            border-color: red;
+            outline-color: red;
+        }
+    }
+}

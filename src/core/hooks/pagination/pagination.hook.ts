@@ -1,8 +1,9 @@
-import { MutableRefObject, useCallback, useEffect, useRef, useState } from 'react'
+import { MutableRefObject, useCallback, useRef, useState } from 'react'
 import { IPaginationMeta, IPaginationParams, IPaginationResponse } from '../../types'
 import { IPaginationHook, IPaginationHookState } from './pagination.hook.types'
 import { globalConstants } from '../../constants'
 import { ErrorHandler } from '../../services/error-handler'
+import { useInitializer } from '../initializer'
 
 const defaultState = { data: [], loading: false }
 
@@ -36,12 +37,9 @@ export function usePagination<TData>(
         [loadData]
     )
 
-    useEffect(() => {
-        if (stateRef.current.loading) {
-            return
-        }
+    useInitializer(() => {
         void requestData(0, [])
-    }, [requestData])
+    })
 
     const canLoadMore = useCallback(() => {
         const { offset, total } = metaRef.current

@@ -1,0 +1,27 @@
+@import 'src/styles/constants';
+
+.appDatepicker {
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto $appControlHeight minmax($appControlErrorSize, auto);
+    grid-gap: $gridTiny;
+
+    .label {
+        &Invalid {
+            color: red;
+        }
+    }
+
+    .control {
+        border: 1px solid gray;
+        height: $appControlHeight;
+        padding: $appControlPadding;
+        border-radius: $borderRadiusBase;
+        width: 100%;
+
+        &Invalid {
+            border-color: red;
+            outline-color: red;
+        }
+    }
+}

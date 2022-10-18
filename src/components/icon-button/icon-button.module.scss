@@ -1,0 +1,21 @@
+@import 'src/styles/constants';
+
+.appIconButton {
+    padding: $gridMedium;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black; // TODO use a theme color
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    &:disabled {
+        color: gray;
+    }
+}
