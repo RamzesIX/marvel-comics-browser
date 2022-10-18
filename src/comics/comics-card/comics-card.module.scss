@@ -60,9 +60,15 @@ $comicsCardActionsHeight: 2rem;
         grid-area: title;
         font-size: $fontSizeLarge;
         font-weight: bold;
+        color: $primaryColor;
+        text-decoration: none;
 
         @media screen and (max-width: $bpXs) {
             font-size: $fontSizeBase;
+        }
+
+        &:hover {
+            color: $tertiaryColor;
         }
     }
 

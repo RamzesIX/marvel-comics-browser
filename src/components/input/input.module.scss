@@ -8,18 +8,18 @@
 
     .label {
         &Invalid {
-            color: red;
+            color: $errorColor;
         }
     }
 
     .control {
-        border: 1px solid gray;
+        border: $appControlBorder;
         padding: $appControlPadding;
         border-radius: $borderRadiusBase;
 
         &Invalid {
-            border-color: red;
-            outline-color: red;
+            border-color: $errorColor;
+            outline-color: $errorColor;
         }
     }
 }

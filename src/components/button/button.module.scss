@@ -1,16 +1,18 @@
 @import 'src/styles/constants';
 
+$appButtonBorder: 1px solid $tertiaryColor;
+
 .appButton {
     height: $appButtonHeight;
     padding: 0 $gridBase;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: firebrick; // TODO use theme color from constants
-    color: white;
+    background-color: transparent;
+    color: $primaryColor;
     border-radius: $borderRadiusBase;
     cursor: pointer;
-    border: none;
+    border: $appButtonBorder;
     position: relative;
 
     .spinner {
@@ -27,10 +29,10 @@
     }
 
     &:hover {
-        opacity: 0.8;
+        border-color: $primaryColor;
     }
 
     &:disabled {
-        background-color: gray;
+        cursor: not-allowed;
     }
 }

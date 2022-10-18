@@ -10,7 +10,7 @@ $headerIconSize: 2.5rem;
     height: $headerHeight;
     box-shadow: $headerBoxShadow;
     z-index: $headerZIndex;
-    background-color: white; // TODO use a color from constants.scss
+    background-color: $primaryColor;
 
     .headerContent {
         height: 100%;
@@ -25,7 +25,7 @@ $headerIconSize: 2.5rem;
         grid-template-columns: auto auto;
         align-items: center;
         justify-content: start;
-        color: black;
+        color: $secondaryColor;
         text-decoration: none;
         width: fit-content;
     }
