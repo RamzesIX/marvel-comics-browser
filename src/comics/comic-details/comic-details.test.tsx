@@ -13,6 +13,13 @@ ComicsService.get = jest.fn().mockResolvedValue(comicMock)
 ComicsService.update = jest.fn()
 ComicsService.create = jest.fn()
 
+const navigateMock = jest.fn()
+
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useNavigate: () => navigateMock,
+}))
+
 describe('ComicDetails.create', () => {
     beforeEach(() => {
         const createRoute = `/comics/${ComicRoutingAction.Create}`
@@ -80,6 +87,12 @@ describe('ComicDetails.create', () => {
 
         // ComicsService.create should be called
         await waitFor(() => expect(ComicsService.create).toHaveBeenCalled())
+    })
+
+    it('should navigate on Comics List page', () => {
+        fireEvent.click(screen.getByRole('button', { name: 'Cancel' }))
+
+        expect(navigateMock).toHaveBeenCalledWith('/comics')
     })
 })
 
