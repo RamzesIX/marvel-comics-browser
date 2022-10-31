@@ -1,5 +1,5 @@
-# [Howework assignment][React] Marvel Comics Browser
-The client application used to view the list of Marvel comics and manage them.
+# [Showcase][React] Marvel Comics Browser
+Showcase app to demonstrate the code quality, architectural decisions and UX approaches I usually make developing a client Web app. The current app is a simple SPA application developed with React and it allows you to browse Marvel comics.
 
 ### Prerequisites
 
